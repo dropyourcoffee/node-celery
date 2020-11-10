@@ -21,7 +21,7 @@ Fixed features are :
 Simple example, included as [examples/hello-world.js](https://github.com/mher/node-celery/blob/master/examples/hello-world.js):
 
 ```javascript
-var celery = require('node-celery'),
+var celery = require('@dropyourcoffee/node-celery'),
 	client = celery.createClient({
 		CELERY_BROKER_URL: 'amqp://guest:guest@localhost:5672//',
 		CELERY_RESULT_BACKEND: 'amqp://'
@@ -44,7 +44,7 @@ client.on('connect', function() {
 Queue.declare: (406) PRECONDITION_FAILED.
 
 ```javascript
-var celery = require('node-celery'),
+var celery = require('@dropyourcoffee/node-celery'),
 	client = celery.createClient({
 		CELERY_TASK_RESULT_DURABLE: false
 	});
@@ -54,7 +54,7 @@ For RabbitMQ backends, the entire broker options can be passed as an object that
 This allows you to specify parameters such as SSL keyfiles, vhost, and connection timeout among others.
 
 ```javascript
-var celery = require('node-celery'),
+var celery = require('@dropyourcoffee/node-celery'),
 	client = celery.createClient({
 		CELERY_BROKER_OPTIONS: {
 			host: 'localhost',
@@ -79,7 +79,7 @@ var celery = require('node-celery'),
 The ETA (estimated time of arrival) lets you set a specific date and time that is the earliest time at which your task will be executed:
 
 ```javascript
-var celery = require('node-celery'),
+var celery = require('@dropyourcoffee/node-celery'),
 	client = celery.createClient({
 		CELERY_BROKER_URL: 'amqp://guest:guest@localhost:5672//',
 	});
@@ -99,7 +99,7 @@ client.on('connect', function() {
 The expires argument defines an optional expiry time, a specific date and time using Date:
 
 ```javascript
-var celery = require('node-celery'),
+var celery = require('@dropyourcoffee/node-celery'),
 	client = celery.createClient({
 		CELERY_BROKER_URL: 'amqp://guest:guest@localhost:5672//',
 	});
@@ -116,7 +116,7 @@ client.on('connect', function() {
 The backend is used to store task results. Currently AMQP (RabbitMQ) and Redis backends are supported.
 
 ```javascript
-var celery = require('node-celery'),
+var celery = require('@dropyourcoffee/node-celery'),
 	client = celery.createClient({
 		CELERY_BROKER_URL: 'amqp://guest:guest@localhost:5672//',
 		CELERY_RESULT_BACKEND: 'redis://localhost/0'
@@ -135,7 +135,7 @@ client.on('connect', function() {
 AMQP backend allows to subscribe to the task result and get it immediately, without polling:
 
 ```javascript
-var celery = require('node-celery'),
+var celery = require('@dropyourcoffee/node-celery'),
 	client = celery.createClient({
 		CELERY_BROKER_URL: 'amqp://guest:guest@localhost:5672//',
 		CELERY_RESULT_BACKEND: 'amqp'
@@ -154,7 +154,7 @@ client.on('connect', function() {
 The simplest way to route tasks to different queues is using CELERY_ROUTES configuration option:
 
 ```javascript
-var celery = require('node-celery'),
+var celery = require('@dropyourcoffee/node-celery'),
 	client = celery.createClient({
 		CELERY_BROKER_URL: 'amqp://guest:guest@localhost:5672//',
 		CELERY_ROUTES: {
